@@ -13,6 +13,12 @@ crate-type = ["cdylib"]
 
 [dependencies]
 ikigai-xslt = "0.1.0"
+# The module-format session runner (run_session) + ModuleCall/ModuleReply, and the kernel
+# Space the runner resolves the endpoint in.
+ikigai-module = "0.1.5"
+ikigai-core = "0.1"
 wasm-bindgen = "=0.2.108"
 console_error_panic_hook = "0.1"
 wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+futures = "0.3"
