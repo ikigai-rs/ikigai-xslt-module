@@ -1,5 +1,14 @@
 # ikigai-xslt-module
 
+> [!WARNING]
+> **Deprecated / retired.** `ikigai-xslt` is now its own dynamically-loadable WASM module:
+> build it with its `module` feature
+> (`cargo build --lib --features module --target wasm32-unknown-unknown`), which emits the
+> same glue via [`ikigai_module::wasm_module!`](https://crates.io/crates/ikigai-module). With
+> the macro the wrapper is a single line, so this separate crate is no longer needed — use
+> [`ikigai-rs/ikigai-xslt`](https://github.com/ikigai-rs/ikigai-xslt) instead. Kept here for
+> history only.
+
 The [`ikigai-xslt`](https://github.com/ikigai-rs/ikigai-xslt) endpoint as a standalone,
 dynamically-loadable **WebAssembly module** — a thin [`wasm-bindgen`] wrapper a host
 lazy-loads at runtime so the XSLT engine (xrust) never has to be linked into the host's
