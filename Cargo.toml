@@ -1,0 +1,18 @@
+[package]
+name = "ikigai-xslt-module"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Brian Sletten <brian.sletten@gmail.com>"]
+description = "The ikigai-xslt module as a standalone, dynamically-loadable WASM artifact: a wasm-bindgen wrapper exposing transform(src, stylesheet, text). Built separately and lazy-loaded by a host, so xrust isn't linked into the host's binary."
+repository = "https://github.com/ikigai-rs/ikigai-xslt-module"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+ikigai-xslt = "0.1.0"
+wasm-bindgen = "=0.2.108"
+console_error_panic_hook = "0.1"
+wasm-bindgen-futures = "0.4"
