@@ -1,0 +1,27 @@
+# CI for ikigai-xslt-module. This crate is publish=false and cdylib-only — a
+# pure wasm artifact, lazy-loaded by hosts (web-demo clones + builds it in its
+# Pages job). So there's no native face to check; CI guards the one thing that
+# matters: the wasm build stays green, so it can't silently break the deploy.
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+          components: clippy, rustfmt
+      - uses: Swatinem/rust-cache@v2
+
+      - name: fmt
+        run: cargo fmt --all -- --check
+
+      - name: clippy (wasm artifact)
+        run: cargo clippy --target wasm32-unknown-unknown -- -D warnings
