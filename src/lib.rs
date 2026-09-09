@@ -8,7 +8,7 @@
 //! - [`transform`] — **by value**: the host resolves the `src`/`stylesheet` references and
 //!   passes the bytes in.
 //! - [`transform_refs`] — **by reference**: the module is handed the *IRIs* and resolves
-//!   them itself by calling back to the host ([`host_resolve`]), the bidirectional
+//!   them itself by calling back to the host (the private `host_resolve`), the bidirectional
 //!   callback the dynamic-module format is really about.
 
 use wasm_bindgen::prelude::*;
